@@ -221,7 +221,7 @@ I found a great video walk through by @jeffheaton that made it very easy to get 
     print(f"Accuracy: {correct}")
    ```
 
-8. After running the sample, you should get soemthing similar to:
+8. After running the sample, you should get something similar to:
 
     ```shell
     Epoch 0, loss: 1.136345386505127

@@ -60,10 +60,11 @@ I found a great video walk through by @jeffheaton that made it very easy to get 
     conda install nb_conda
     ```
 
-8. Install Pytorch with GPU support
+8. Install Pytorch with GPU support.  
+    > Note: I had to add `torchvision` and `torchaudio` in order to get the tutorials section to work.
 
     ```sh
-    conda install pytorch cudatoolkit -c pytorch
+    conda install pytorch cudatoolkit torchvision torchaudio -c pytorch
     ```
 
 9. Jeff provides a list of [additional libraries](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/tools.yml) which may be helpful.

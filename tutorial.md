@@ -4,6 +4,12 @@ Once you have an environment setup, you can run the [tutorials from pytorch.org]
 
 ## Checking your environment
 
+Make sure you are in the correct conda environment. If you followed the [Install document](install.md), then you should be using `torch` as your conda environment. Switch to `torch` with:
+
+```shell
+conda activate torch
+```
+
 As a sanity check, run the following code to make sure you are using the correct environment and using the GPU
 
 ```python

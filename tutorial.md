@@ -10,6 +10,12 @@ Make sure you are in the correct conda environment. If you followed the [Install
 conda activate torch
 ```
 
+To make it easier, you can run the following code in a jupyter notebook by running the following:
+
+```shell
+jupyter notebook
+```
+
 As a sanity check, run the following code to make sure you are using the correct environment and using the GPU
 
 ```python

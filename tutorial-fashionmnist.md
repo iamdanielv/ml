@@ -242,3 +242,12 @@ The [Quick Start tutorial](https://pytorch.org/tutorials/beginner/basics/quickst
     ```
 
     If your `Predicted` doesn't match the `Actual`, you can increase the number of epochs to get your accuracy to go up.
+
+## Conclusion
+
+That concludes the intro tutorial from pytorch.org.
+I've included several other tutorials in the [README.md](README.md) file if you want to learn more.
+
+I can be reached at @IAmDanielV on Twitter if you have any questions or suggestions.
+
+Thanks!

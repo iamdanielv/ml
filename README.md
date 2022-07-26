@@ -4,7 +4,12 @@ Notes on getting started with and environment setup for Machine Learning on Linu
 
 ## Links
 
+### Installation and Environment Setup
+
 * [Install Miniconda and PyTorch](install.md)
   
-* [MNIST](tutorial-mnist.md)
-* [Fashion MNIST](tutorial-fashionmnist.md)
+### Tutorials and Understanding
+
+* [MNIST](tutorial-mnist.md) - Gives a High level overview of what we are doing
+  
+* [Fashion MNIST](tutorial-fashionmnist.md) - Running on the GPU

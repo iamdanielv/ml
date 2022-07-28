@@ -498,6 +498,8 @@ Go back to the tutorial and read about what the previous code did.
 Now we can check the accuracy of our prediction with the following code, note that I have modified it from the tutorial to make it easier to understand what is happening:
 
 ```python
+import matplotlib.pyplot as plt
+
 correct = 0
 total = 0
 

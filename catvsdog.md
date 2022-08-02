@@ -72,7 +72,7 @@ REBUILD_DATA = False # set to True once, then back to False unless you want to c
 
 class DogsVSCats():
     IMG_SIZE = 50
-    CATS="data/PetImages/Cat"
+    CATS = "data/PetImages/Cat"
     DOGS = "data/PetImages/Dog"
     LABELS = {CATS: 0, DOGS: 1}
     training_data = []
@@ -325,9 +325,9 @@ REBUILD_DATA = False # set to true to one once, then back to false unless you wa
 
 class DogsVSCats():
     IMG_SIZE = 50
-    CATS = "PetImages/Cat"
-    DOGS = "PetImages/Dog"
-    TESTING = "PetImages/Testing"
+    CATS = "data/PetImages/Cat"
+    DOGS = "data/PetImages/Dog"
+    TESTING = "data/PetImages/Testing"
     LABELS = {CATS: 0, DOGS: 1}
     training_data = []
 

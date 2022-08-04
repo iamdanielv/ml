@@ -402,12 +402,14 @@ if REBUILD_DATA:
     dogsvcats = DogsVSCats()
     dogsvcats.make_training_data()
 
+print("Load image data...")
 training_data = np.load("training_data.npy", allow_pickle=True)
-print(len(training_data))
+print("Loaded Images: ", len(training_data))
 
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 loss_function = nn.MSELoss()
 
+print("Convert to Tensors...")
 # This code is different than the tutorial, but runs faster
 X = torch.Tensor(np.array([i[0] for i in training_data])).view(-1,50,50)
 X = X/255.0
@@ -416,9 +418,11 @@ y = torch.Tensor(np.array([i[1] for i in training_data]))
 VAL_PCT = 0.1  # lets reserve 10% of our data for validation
 val_size = int(len(X)*VAL_PCT)
 
+print("Set aside training data...")
 train_X = X[:-val_size]
 train_y = y[:-val_size]
 
+print("Set aside test data...")
 test_X = X[-val_size:]
 test_y = y[-val_size:]
 

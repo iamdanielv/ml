@@ -258,7 +258,7 @@ for epoch in range(EPOCHS):
         loss.backward()
         optimizer.step()    # Does the update
 
-    print(f"Epoch: {epoch}. Loss: {loss}")
+    print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
 ```
 
 >Note: there is some discussion in the tutorial about which optimizer to use, it is worth a read / watch the video.
@@ -427,10 +427,11 @@ test_X = X[-val_size:]
 test_y = y[-val_size:]
 
 BATCH_SIZE = 100
-EPOCHS = 1
 
 
 def train(net):
+    EPOCHS = 1
+    print(f"Begin training Epochs({EPOCHS})")
     for epoch in range(EPOCHS):
         for i in tqdm(range(0, len(train_X), BATCH_SIZE)): # from 0, to the len of x, stepping BATCH_SIZE at a time. [:50] ..for now just to dev
             #print(f"{i}:{i+BATCH_SIZE}")
@@ -444,7 +445,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}. Loss: {loss}")
+        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
 
 
 def test(net):
@@ -483,9 +484,11 @@ we can now run the training on the GPU
 
 ```python
 def train(net):
+    EPOCHS = 3
+    print(f"Begin training Epochs({EPOCHS})")
     optimizer = optim.Adam(net.parameters(), lr=0.001)
     BATCH_SIZE = 100
-    EPOCHS = 3
+    
     for epoch in range(EPOCHS):
         for i in range(0, len(train_X), BATCH_SIZE): # from 0, to the len of x, stepping BATCH_SIZE at a time. [:50] ..for now just to dev
             #print(f"{i}:{i+BATCH_SIZE}")
@@ -501,7 +504,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}. Loss: {loss}")
+        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
 
 train(net)
 ```
@@ -662,9 +665,11 @@ print("label",training_data[1][1])
 
 
 def train(net):
+    EPOCHS = 6
+    print(f"Begin training Epochs({EPOCHS})")
     optimizer = optim.Adam(net.parameters(), lr=0.001)
     BATCH_SIZE = 100
-    EPOCHS = 6
+
     for epoch in range(EPOCHS):
         for i in tqdm(range(0, len(train_X), BATCH_SIZE)): # from 0, to the len of x, stepping BATCH_SIZE at a time.
             batch_X = train_X[i:i+BATCH_SIZE].view(-1, 1, 150, 150)
@@ -679,7 +684,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}. Loss: {loss}")
+        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
 
 def test(net):
     correct = 0

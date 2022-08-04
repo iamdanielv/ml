@@ -47,7 +47,7 @@ The versions of Python and GCC may change, but you want to make sure you are in 
 
 ## Install OpenCV in this environment
 
-Note: You may have to install opencv if you haven't installed it in this environment yet. You can do that by typing the following, it may take a while for the dependencies etc to be determined:
+Note: You may have to install opencv if you haven't installed it in this environment yet. You can do that by typing the following **into a shell**, not the jupyter notebook. It may take a while for the dependencies etc to be determined:
 
 ```shell
 pip3 install opencv-python==4.4.0.40
@@ -59,7 +59,7 @@ We also need to install tqdm, it can be installed with:
 conda install -c conda-forge tqdm
 ```
 
-We now create a class to hold our Cats and Dogs:
+Back on the Jupyter Notbook, create a class to hold our Cats and Dogs:
 
 ```python
 import os

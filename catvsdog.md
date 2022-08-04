@@ -117,9 +117,11 @@ if REBUILD_DATA:
 training_data = np.load("training_data.npy", allow_pickle=True)
 ```
 
+> Note: If you get an error about the training_data.npy not existing, make sure you changed the `REBUILD_DATA = True` at least once to generate the data.
+
 ## Exploring the data
 
-we can get a feel for the data by exploring it with:
+We can get a feel for the data by exploring it with:
 
 ```python
 print(len(training_data))

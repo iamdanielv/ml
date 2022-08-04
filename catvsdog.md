@@ -482,8 +482,6 @@ net.to(device)
 we can now run the training on the GPU
 
 ```python
-EPOCHS = 3
-
 def train(net):
     optimizer = optim.Adam(net.parameters(), lr=0.001)
     BATCH_SIZE = 100

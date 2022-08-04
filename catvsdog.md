@@ -258,7 +258,7 @@ for epoch in range(EPOCHS):
         loss.backward()
         optimizer.step()    # Does the update
 
-    print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
+    print(f"Epoch: {epoch+1}/{EPOCHS}. Loss: {loss}")
 ```
 
 >Note: there is some discussion in the tutorial about which optimizer to use, it is worth a read / watch the video.
@@ -445,7 +445,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
+        print(f"Epoch: {epoch+1}/{EPOCHS}. Loss: {loss}")
 
 
 def test(net):
@@ -504,7 +504,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
+        print(f"Epoch: {epoch+1}/{EPOCHS}. Loss: {loss}")
 
 train(net)
 ```
@@ -684,7 +684,7 @@ def train(net):
             loss.backward()
             optimizer.step()    # Does the update
 
-        print(f"Epoch: {epoch}/{EPOCHS}. Loss: {loss}")
+        print(f"Epoch: {epoch+1}/{EPOCHS}. Loss: {loss}")
 
 def test(net):
     correct = 0

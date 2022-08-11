@@ -459,6 +459,10 @@ optimizer = optim.Adam(net.parameters(), lr=0.001)
 There is a very good explanation of the loss and optimizer functions in the tutorial, I won't repeat it here. Go read it in the tutorial and come back here once you reach the epoch section.
 
 ```python
+import time
+start_time = time.time()
+
+print("Begin Training...")
 for epoch in range(3): # 3 full passes over the data
   print(f"Calc Epoch {epoch + 1}...", end = '') # Print the Epoch, but no new line at end
   for data in trainset:  # `data` is a batch of data
@@ -469,7 +473,7 @@ for epoch in range(3): # 3 full passes over the data
     loss.backward()  # apply this loss backwards thru the network's parameters
     optimizer.step()  # attempt to optimize weights to account for loss/gradients
   print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) declines!
-print("Finished Training...")
+print("Finished Training... took ", time.time() - start_time, " secs")
 ```
 
 I changed the output a bit to make it clearer what is happening, but it should print something similar to this:
@@ -492,6 +496,7 @@ import matplotlib.pyplot as plt
 correct = 0
 total = 0
 
+start_time = time.time()
 print("Determine Accuracy...")
 with torch.no_grad():
     for data in testset:
@@ -524,7 +529,7 @@ with torch.no_grad():
                 plt.show()
             total += 1
 
-print("Accuracy: ", round(correct/total, 3))
+print("Accuracy: ", round(correct/total, 3),  " took ", time.time() - start_time, " secs")
 ```
 
 ## Playing with GPU Acceleration
@@ -605,6 +610,10 @@ import torch.optim as optim
 loss_function = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 
+import time
+start_time = time.time()
+
+print("Begin Training...")
 for epoch in range(3): # 3 full passes over the data
   print(f"Calc Epoch {epoch + 1}...", end = '') # Print the Epoch, but no new line at end
   for data in trainset:  # `data` is a batch of data
@@ -617,13 +626,13 @@ for epoch in range(3): # 3 full passes over the data
     loss.backward()  # apply this loss backwards thru the network's parameters
     optimizer.step()  # attempt to optimize weights to account for loss/gradients
   print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) declines!
-print("Finished Training...")
-
+print("GPU Finished Training... took ", time.time() - start_time, " secs")
 
 import matplotlib.pyplot as plt
 correct = 0
 total = 0
 
+start_time = time.time()
 print("Determine Accuracy...")
 with torch.no_grad():
     for data in testset:
@@ -657,7 +666,7 @@ with torch.no_grad():
                 plt.show()
             total += 1
 
-print("Accuracy: ", round(correct/total, 3))
+print("GPU Accuracy: ", round(correct/total, 3),  " took ", time.time() - start_time, " secs")
 
 ```
 

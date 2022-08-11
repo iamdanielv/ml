@@ -87,45 +87,22 @@ In order to get a better understanding of what the data looks like, we can exami
 >Note that since the trainset has a batch size of 3, we will only get sample batches of 3 at a time
 
 ```python
+import matplotlib.pyplot as plt
+
 for sample in trainset:
-    print(f"raw images:\n{sample[0]}")
-    print(f"\nlabels:\n{sample[1]}")
+    # uncomment the following line to see the raw data
+    #print(f"raw images:\n{sample[0]}")
+    print(f"\nExpecting images:{sample[1]}")
+    for data in sample[0]:
+        plt.imshow(data[0].view(28,28))
+        plt.axis('off')
+        plt.show()
     break
 ```
 
-The code above will print the contents of the 3 images we are pulling from the trainset. It should look something like:
+The code above will print the contents of the 3 images we are pulling from the trainset. Note that the images will be different every time this is run since we shuffle the trainset every time we pull from it. It should look something like:
 
-```shell
-raw images:
-tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          ...,
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.]]],
-
-
-        [[[0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          ...,
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.]]],
-
-
-        [[[0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          ...,
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.],
-          [0., 0., 0.,  ..., 0., 0., 0.]]]])
-
-labels:
-tensor([5, 6, 8])
-```
+![Sample MNIST Images](images/sampleMNISTImages.png)
 
 ### Back to the data from the tutorial
 

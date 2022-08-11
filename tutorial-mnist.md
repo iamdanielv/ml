@@ -89,15 +89,25 @@ In order to get a better understanding of what the data looks like, we can exami
 ```python
 import matplotlib.pyplot as plt
 
-for sample in trainset:
-    # uncomment the following line to see the raw data
-    #print(f"raw images:\n{sample[0]}")
-    print(f"\nExpecting images:{sample[1]}")
-    for data in sample[0]:
-        plt.imshow(data[0].view(28,28))
-        plt.axis('off')
-        plt.show()
-    break
+# get one iteration of the batch
+sample = next(iter(trainset))
+# pull out the image tensor
+images = sample[0]
+# pull out the labels tensor
+labels = sample[1]
+
+# you can uncomment the following lines to get a better feel for the data
+# this is the whole sample
+#print(sample)
+# this is just the raw image data
+#print(f"raw images {images}")
+# this is the tensor containing the labels
+print(f"Expecting images of: {labels.numpy()}")
+for i, image in enumerate(images):
+    plt.axis('off')
+    plt.title(f"Expecting: {labels[i].item()}")
+    plt.imshow(image.view(28,28))
+    plt.show()
 ```
 
 The code above will print the contents of the 3 images we are pulling from the trainset. Note that the images will be different every time this is run since we shuffle the trainset every time we pull from it. It should look something like:

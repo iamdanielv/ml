@@ -519,6 +519,8 @@ with torch.no_grad():
                 print(" x no match")
                 # since we got the answer wrong, show the image
                 plt.imshow(X[idx].view(28,28))
+                plt.axis('off')
+                plt.title(f"Predicted {torch.argmax(i)} - label {y[idx]}")
                 plt.show()
             total += 1
 
@@ -651,6 +653,7 @@ with torch.no_grad():
                 # since we got the answer wrong, show the image
                 plt.imshow(X[idx].cpu().view(28,28))
                 plt.axis('off')
+                plt.title(f"Predicted {torch.argmax(i)} - label {y[idx]}")
                 plt.show()
             total += 1
 

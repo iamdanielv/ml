@@ -227,6 +227,7 @@ Looking at the raw image data we can't really tell if it's an 8, but we can use 
 import matplotlib.pyplot as plt
 
 plt.imshow(data[0][0].view(28,28))
+plt.axis('off')
 plt.show()
 ```
 

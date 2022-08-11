@@ -460,7 +460,7 @@ There is a very good explanation of the loss and optimizer functions in the tuto
 
 ```python
 for epoch in range(3): # 3 full passes over the data
-  print(f"Calc Epoch {epoch}...", end = '') # Print the Epoch, but no new line at end
+  print(f"Calc Epoch {epoch + 1}...", end = '') # Print the Epoch, but no new line at end
   for data in trainset:  # `data` is a batch of data
     X, y = data  # X is the batch of raw image data, y is the batch of labels for those raw images
     net.zero_grad()  # sets gradients to 0 before loss calc. You will do this likely every step.
@@ -469,14 +469,15 @@ for epoch in range(3): # 3 full passes over the data
     loss.backward()  # apply this loss backwards thru the network's parameters
     optimizer.step()  # attempt to optimize weights to account for loss/gradients
   print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) declines!
+print("Finished Training...")
 ```
 
 I changed the output a bit to make it clearer what is happening, but it should print something similar to this:
 
 ```shell
-Calc Epoch 0... loss: 0.1123
-Calc Epoch 1... loss: 0.4305
-Calc Epoch 2... loss: 0.0208
+Calc Epoch 1... loss: 0.1123
+Calc Epoch 2... loss: 0.4305
+Calc Epoch 3... loss: 0.0208
 ```
 
 Go back to the tutorial and read about what the previous code did.

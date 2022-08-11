@@ -287,6 +287,7 @@ total = 0
 # we use a dictionary to keep track of our count
 counter_dict = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0}
 
+print("Start counting inputs")
 
 for data in trainset:
     Xs, ys = data
@@ -296,9 +297,11 @@ for data in trainset:
 
 print(f"Entire Dictionary {counter_dict}\n")
 
-print("frequency")
+print("Frequency")
 for i in counter_dict:
     print(f"{i}: {counter_dict[i]/total*100.0}%")
+
+print("Finished")
 ```
 
 it should respond with something similar to:

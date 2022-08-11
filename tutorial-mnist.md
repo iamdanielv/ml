@@ -492,13 +492,14 @@ import matplotlib.pyplot as plt
 correct = 0
 total = 0
 
+print("Determine Accuracy...")
 with torch.no_grad():
     for data in testset:
         X, y = data
         output = net(X.view(-1,784))
         #print(output)
         # y contains the predefined labels for this batch
-        print(f"\nbatch data labels {y}")
+        print(f"\nbatch data labels {y.numpy()}")
         for idx, i in enumerate(output):
             # idx gives us an index into the sample batch
             # i contains the probability tensor

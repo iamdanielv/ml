@@ -468,7 +468,7 @@ for epoch in range(3): # 3 full passes over the data
     loss = F.nll_loss(output, y)  # calc and grab the loss value
     loss.backward()  # apply this loss backwards thru the network's parameters
     optimizer.step()  # attempt to optimize weights to account for loss/gradients
-  print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) 
+  print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) declines!
 ```
 
 I changed the output a bit to make it clearer what is happening, but it should print something similar to this:

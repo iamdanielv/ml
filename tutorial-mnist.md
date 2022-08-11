@@ -525,6 +525,139 @@ with torch.no_grad():
 print("Accuracy: ", round(correct/total, 3))
 ```
 
+## Playing with GPU Acceleration
+
+If you want to see the difference of running the code on the GPU, you can try the following code:
+
+```python
+import torch
+import torchvision
+from torchvision import transforms, datasets
+import torch.nn as nn
+import torch.nn.functional as F
+
+# This is different than the tutorial
+# the sample data root is moved to `data`
+train = datasets.MNIST(
+    root='data',
+    train=True,
+    download=True,
+    transform=transforms.Compose([
+                           transforms.ToTensor()
+    ]))
+
+test = datasets.MNIST(
+    root='data',
+    train=False,
+    download=True,
+    transform=transforms.Compose([
+                           transforms.ToTensor()
+    ]))
+
+# I split this into multiple lines to make it easier to understand
+trainset = torch.utils.data.DataLoader(
+    train,
+    batch_size=10,
+    shuffle=True)
+testset = torch.utils.data.DataLoader(
+    test,
+    batch_size=10,
+    shuffle=False)
+
+# I've added comments to make it easier to understand
+# This is our Neural Net Model
+class Net(nn.Module):
+  def __init__(self):
+    super().__init__()
+    # 28x28 is the size of our input image, and 64 is the number of output features
+    self.fc1 = nn.Linear(28*28, 64)
+    # the second layer takes in the output from fc1 and outputs 64 features
+    self.fc2 = nn.Linear(64, 64)
+    # the third layer takes in the output from fc2 and outputs 64 features
+    self.fc3 = nn.Linear(64, 64)
+    # the fourth layer takes in the output from fc3 and outputs 10 features
+    # 10 is the number of "buckets" / classes that we want our data to be grouped into
+    # In our use case it is the numbers: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+    self.fc4 = nn.Linear(64, 10)
+
+  # the forward function is how data passes through the model
+  # in this case x is the raw image data being passed in as input
+  # relu refers to Rectified linear function (scaled between 0 and 1)
+  def forward(self, x):
+      x = F.relu(self.fc1(x))
+      x = F.relu(self.fc2(x))
+      x = F.relu(self.fc3(x))
+      x = self.fc4(x)
+      return F.log_softmax(x, dim=1)
+
+
+# Get cpu or gpu device for training.
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Using {device} device")
+
+net = Net().to(device)
+print(net)
+
+import torch.optim as optim
+
+loss_function = nn.CrossEntropyLoss()
+optimizer = optim.Adam(net.parameters(), lr=0.001)
+
+for epoch in range(3): # 3 full passes over the data
+  print(f"Calc Epoch {epoch + 1}...", end = '') # Print the Epoch, but no new line at end
+  for data in trainset:  # `data` is a batch of data
+    X, y = data  # X is the batch of raw image data, y is the batch of labels for those raw images
+    X, y = X.to(device), y.to(device) # move the data to the device (cpu or gpu(cuda))
+    
+    net.zero_grad()  # sets gradients to 0 before loss calc. You will do this likely every step.
+    output = net(X.view(-1,784))  # pass in the reshaped batch (recall they are 28x28 atm)
+    loss = F.nll_loss(output, y)  # calc and grab the loss value
+    loss.backward()  # apply this loss backwards thru the network's parameters
+    optimizer.step()  # attempt to optimize weights to account for loss/gradients
+  print(f" loss: {loss.item():>.4f}")  # print loss. We hope loss (a measure of wrong-ness) declines!
+print("Finished Training...")
+
+
+import matplotlib.pyplot as plt
+correct = 0
+total = 0
+
+print("Determine Accuracy...")
+with torch.no_grad():
+    for data in testset:
+        X, y = data
+        X, y = X.to(device), y.to(device)
+        output = net(X.view(-1,784))
+        #print(output)
+        # y contains the predefined labels for this batch
+        print(f"\nbatch data labels {y.cpu().numpy()}")
+        for idx, i in enumerate(output):
+            # idx gives us an index into the sample batch
+            # i contains the probability tensor
+            # torch.argmax(i) gives us the index with the highest probability
+            # the highest probability is what we Predict the image to contain
+            # we re-use the index as our label, so index 0 means number 0, index 1 means number 1, etc.
+            # print(f"\nprobability tensor: {i}")
+            print(f"Predicted: {torch.argmax(i)} , label: {y[idx]}" , end = '')
+            if torch.argmax(i) == y[idx]:
+                correct += 1
+                print(" = match")
+                # uncomment the following lines if you want to see the sample image
+                # I commented it out to only show the ones where we got it wrong
+                #plt.imshow(X[idx].view(28,28))
+                #plt.show()
+            else:
+                print(" x no match")
+                # since we got the answer wrong, show the image
+                plt.imshow(X[idx].cpu().view(28,28))
+                plt.axis('off')
+                plt.show()
+            total += 1
+
+print("Accuracy: ", round(correct/total, 3))
+
+```
+
 ## Conclusion
 
 That concludes the tutorial from Deep Learning and Neural Networks with Python and Pytorch.

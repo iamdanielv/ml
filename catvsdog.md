@@ -715,3 +715,12 @@ train(net)
 print("Begin Testing...")
 test(net)
 ```
+
+## Conclusion
+
+That concludes the tutorial on Cat vs Dog.
+I've included several other tutorials in the [README.md](README.md) file if you want to learn more.
+
+I can be reached at [@IAmDanielV](https://twitter.com/iamdanielv) on Twitter if you have any questions or suggestions.
+
+Thanks!

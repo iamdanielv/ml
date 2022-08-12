@@ -187,12 +187,16 @@ The [Quick Start tutorial](https://pytorch.org/tutorials/beginner/basics/quickst
     > Note: you should see the test **Accuracy Go Up** and **Avg Loss Go Down** each epoch.  Something neat to try is **changing the number of epochs** to see if you can **improve the accuracy**
 
     ```python
+    import time
+    start_time = time.time()
+
+    print("Begin Training...")
     epochs = 5
     for t in range(epochs):
         print(f"Epoch {t+1}\n-------------------------------")
         train(train_dataloader, model, loss_fn, optimizer)
         test(test_dataloader, model, loss_fn)
-    print("Finished Training!")
+    print("Finished Training... took ", time.time() - start_time, " secs")
     ```
 
 7. In order to re-use your model, you can save it:

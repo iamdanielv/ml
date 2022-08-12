@@ -1,6 +1,6 @@
 # Convolutional Neural Network to Determine Cat vs Dog
 
-Harrison (@sentdex) has some more very thorough videos available on [https://pythonprogramming.net/](https://pythonprogramming.net/)
+Harrison (@sentdex) has some more videos available on [https://pythonprogramming.net/](https://pythonprogramming.net/)
 
 This document is the continuation of [tutorial-mnist.md](tutorial-mnist.md) and starts off with the video [Convnet Intro - Deep Learning and Neural Networks with Python and Pytorch p.5](https://www.youtube.com/watch?v=9aYuQmMJvjA&t=170s) from [Harrison's YouTube channel](https://www.youtube.com/c/sentdex/featured).  
 

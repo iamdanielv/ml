@@ -1,6 +1,6 @@
 # Introduction
 
-There is a nice tutorial available at [Introduction - Deep Learning and Neural Networks with Python and Pytorch](https://pythonprogramming.net/introduction-deep-learning-neural-network-pytorch/). Part 1 has a good overview of how Neural Networks work and getting started. Part 2 gets into working with data and that is what I will be using here - [pythonprogramming.net - Data - Deep Learning and Neural Networks with Python](https://pythonprogramming.net/data-deep-learning-neural-network-pytorch/) There is a video walk through and code available on the site, I have copied it here for easy reference.
+There is a nice tutorial available at [Introduction - Deep Learning and Neural Networks with Python and Pytorch](https://pythonprogramming.net/introduction-deep-learning-neural-network-pytorch/). Part 1 has a good overview of how Neural Networks work and getting started. Part 2 gets into working with data and that is what I will be using here - [pythonprogramming.net - Data - Deep Learning and Neural Networks with Python](https://pythonprogramming.net/data-deep-learning-neural-network-pytorch/) There is a video walk through and code available on the site, I have copied it here for easy reference. I've also made some modifications to the code to make it easier for me to understand what is happening.
 
 ## Checking your environment
 

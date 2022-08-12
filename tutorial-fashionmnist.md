@@ -384,6 +384,35 @@ with torch.no_grad():
 
 ```
 
+## Explore the Fashion MNIST data
+
+Since we have a model and some testing data, we can loop over the test data and see how our model performs.
+
+* If using the CPU, use this code:
+
+    ```python
+    # Use the CPU
+    with torch.no_grad():
+        count = 0
+        for X, y in test_data:
+            pred = model(X)
+            predicted, actual = classes[pred[0].argmax(0)], classes[y]
+            print(f'Predicted: "{predicted}", Actual: "{actual}"', end ='')
+            if predicted == actual:
+                print(" = match")
+            else:
+                print(" x NO match")
+                plt.imshow(X.view(28,28))
+                plt.axis('off')
+                plt.title(f"Predicted {predicted} - label {actual}")
+                plt.show()
+            # only show the first 100 test images
+            # otherwise it takes a very long time
+            count += 1
+            if count == 100:
+                break
+    ```
+
 ## Conclusion
 
 That concludes the intro tutorial from pytorch.org.

@@ -678,6 +678,6 @@ print("GPU Accuracy: ", round(correct/total, 3),  " took ", time.time() - start_
 That concludes the tutorial from Deep Learning and Neural Networks with Python and Pytorch.
 I've included several other tutorials in the [README.md](README.md) file if you want to learn more.
 
-I can be reached at @IAmDanielV on Twitter if you have any questions or suggestions.
+I can be reached at [@IAmDanielV](https://twitter.com/iamdanielv) on Twitter if you have any questions or suggestions.
 
 Thanks!

@@ -245,6 +245,6 @@ I found a great video walk through by @jeffheaton that made it very easy to get 
 You should now have your environment set up and ready to go.
 I've included several other tutorials in the [README.md](README.md) file if you want to learn more.
 
-I can be reached at @IAmDanielV on Twitter if you have any questions or suggestions.
+I can be reached at [@IAmDanielV](https://twitter.com/iamdanielv) on Twitter if you have any questions or suggestions.
 
 Thanks!

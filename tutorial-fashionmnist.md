@@ -413,6 +413,42 @@ Since we have a model and some testing data, we can loop over the test data and 
                 break
     ```
 
+* If using the GPU, use this code:
+
+    ```python
+    #Use the GPU
+    with torch.no_grad():
+        count = 0
+        for X, y in test_data:
+            pred = model(X)
+            predicted, actual = classes[pred[0].argmax(0)], classes[y]
+            print(f'Predicted: "{predicted}", Actual: "{actual}"', end ='')
+            if predicted == actual:
+                print(" = match")
+            else:
+                print(" x NO match")
+                plt.imshow(X.cpu().view(28,28))
+                plt.axis('off')
+                plt.title(f"Predicted {predicted} - label {actual}")
+                plt.show()
+            # only show the first 100 test images
+            # otherwise it takes a very long time
+            count += 1
+            if count == 100:
+                break
+    ```
+
+* You may have to re-load the test_data if jupyter notebook freaks out
+
+    ```python
+    test_data = datasets.FashionMNIST(
+        root="data",
+        train=False,
+        download=True,
+        transform=ToTensor(),
+    )
+    ```
+
 ## Conclusion
 
 That concludes the intro tutorial from pytorch.org.

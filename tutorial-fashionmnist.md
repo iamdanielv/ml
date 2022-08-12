@@ -355,6 +355,13 @@ for t in range(epochs):
     test(test_dataloader, model, loss_fn)
 print("Finished Training... took ", time.time() - start_time, " secs")
 
+
+torch.save(model.state_dict(), "cpu_model.pth")
+print("Saved PyTorch Model State to cpu_model.pth")
+
+model = NeuralNetwork()
+model.load_state_dict(torch.load("cpu_model.pth"))
+
 classes = [
 "T-shirt/top",
 "Trouser",

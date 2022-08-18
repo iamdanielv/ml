@@ -323,7 +323,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-REBUILD_DATA = False # set to true to one once, then back to false unless you want to change something in your training data.
+REBUILD_DATA = False # set to True once, then back to False unless you want to change something in your training data.
 
 class DogsVSCats():
     IMG_SIZE = 50
@@ -553,7 +553,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-REBUILD_DATA = False # set to true once, then back to false unless you want to change something in your training data.
+REBUILD_DATA = False # set to True once, then back to False unless you want to change something in your training data.
 
 class DogsVSCats():
     IMG_SIZE = 150

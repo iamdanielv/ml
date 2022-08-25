@@ -479,7 +479,7 @@ for epoch in range(3): # 3 full passes over the data
 print("Finished Training... took ", time.time() - start_time, " secs")
 ```
 
-I changed the output a bit to make it clearer what is happening, but it should print something similar to this:
+I've added a timer to see how long it takes to complete the Training. I also changed the output a bit to make it clearer what is happening, but it should print something similar to this:
 
 ```shell
 Calc Epoch 1... loss: 0.1123

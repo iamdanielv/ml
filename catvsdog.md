@@ -18,7 +18,7 @@ To make it easier, you can run the following code in a jupyter notebook by runni
 jupyter notebook
 ```
 
-As a sanity check, run the following code to make sure you are using the correct environment and using the GPU
+As a sanity check, run the following code to make sure you are using the correct environment
 
 ```python
 import sys
@@ -29,7 +29,6 @@ print(f"Conda Environment: {os.environ['CONDA_DEFAULT_ENV']}")
 print(f"PyTorch Version: {torch.__version__}")
 print()
 print(f"Python {sys.version}")
-print("GPU is", "available" if torch.cuda.is_available() else "NOT AVAILABLE")
 ```
 
 If you followed the [Install document](install.md), you should see something similar to:
@@ -40,14 +39,13 @@ PyTorch Version: 1.12.0
 
 Python 3.8.13 (default, Mar 28 2022, 11:38:47) 
 [GCC 10.3.0]
-GPU is available
 ```
 
-The versions of Python and GCC may change, but you want to make sure you are in the `torch` Conda Environment and that `GPU is available`
+The versions of Python and GCC may change, but you want to make sure you are in the `torch` Conda Environment
 
 ## Install OpenCV in this environment
 
-Note: You may have to install opencv if you haven't installed it in this environment yet. You can do that by typing the following **into a shell**, not the jupyter notebook. It may take a while for the dependencies etc to be determined:
+Note: You may have to install opencv if you haven't installed it in this environment yet. You can do that by typing the following **into a shell that is in the torch environment**, not the jupyter notebook. It may take a while for the dependencies etc to be determined:
 
 ```shell
 pip3 install opencv-python==4.4.0.40
@@ -59,7 +57,7 @@ We also need to install tqdm, it can be installed with:
 conda install -c conda-forge tqdm
 ```
 
-Back on the Jupyter Notbook, create a class to hold our Cats and Dogs:
+Back on the Jupyter Notebook, create a class to hold our Cats and Dogs:
 
 ```python
 import os

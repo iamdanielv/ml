@@ -658,6 +658,7 @@ test_y = y[-val_size:]
 print("Sample of our image data")
 import matplotlib.pyplot as plt
 plt.imshow(training_data[1][0], cmap="gray")
+plt.axis('off')
 plt.show()
 print("label",training_data[1][1])
 

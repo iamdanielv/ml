@@ -491,7 +491,7 @@ Go back to the tutorial and read about what the previous code did.
 
 ## Checking Accuracy
 
-Now we can check the accuracy of our prediction with the following code, note that I have modified it from the tutorial to make it easier to understand what is happening:
+Now we can check the accuracy of our prediction with the following code, note that I have modified it from the tutorial to make it easier to understand what is happening. I also added a timer to see how long it takes to check accuracy:
 
 ```python
 import matplotlib.pyplot as plt

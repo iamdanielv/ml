@@ -449,6 +449,12 @@ Since we have a model and some testing data, we can loop over the test data and 
     )
     ```
 
+### Exploring Fashion MNIST Accuracy
+
+When running the above code, regardless of on GPU or CPU, we can plot the error images to get a feel for what the neural net is doing. You should see something similar to the following:
+
+![Exploring Fashion MNIST Images](images/exploringFashionMNIST.png)
+
 ## Conclusion
 
 That concludes the intro tutorial from pytorch.org.

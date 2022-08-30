@@ -194,32 +194,41 @@ Every time the code is run, it will pick random images, but the result should be
 
 ![Showing random FashionMNIST Images](images/multipleFashionMNIST.png)
 
+### Preparing our Data
+
+Earlier we saw that `Training Dataset FashionMNIST Number of datapoints: 60000` which may be too big for our model to be loaded into the GPU or RAM. We can get around such limitations by using batches.
+
+Note: The FashionMNIST set is relatively small, but in general *real* data sets will be too big for our GPU or RAM to handle, so we learn how to break our data set into batches.
+
+1. We break our data into batches of `batch_size` since it can be huge. We can then use a `DataLoader` to iterate over the data one `batch_size` at a time.
 
     ```python
-    batch_size = 64
+    batch_size = 32
 
     # Create data loaders
     train_dataloader = DataLoader(training_data, batch_size=batch_size)
     test_dataloader = DataLoader(test_data, batch_size=batch_size)
     
-    for X, y in test_dataloader:
-        print(f"Shape of X [N, C, H, W]: {X.shape}")
-        print(f"Shape of y: {y.shape} {y.dtype}")
+    for images_batch, labels_batch in train_dataloader:
+        print(f"Shape of images batch [N, C, H, W]: {images_batch.shape}")
+        print(f"Shape of labels batch: {labels_batch.shape} {labels_batch.dtype}")
+        # this breaks out of the for loop after just one run
         break
     ```
 
     You should see something similar to:
 
     ```shell
-    Shape of X [N, C, H, W]: torch.Size([64, 1, 28, 28])
-    Shape of y: torch.Size([64]) torch.int64
+    Shape of images batch [N, C, H, W]: torch.Size([32, 1, 28, 28])
+    Shape of labels batch: torch.Size([32]) torch.int64
     ```
 
-    Notice that from X:
-    * N is the number of items, comes from the batch_size we specified earlier
-    * C is the color channels (our images are greyscale)
+    Notice that from images batch:
+    * N is the number of items, comes from the `batch_size` we specified earlier
+    * C is the color channels (our images are grayscale)
     * H is Height and W is Width - should both be 28, since the images in the Fashion MNIST data set are cropped to 28x28.  
     * To learn more about Fashion MNIST, go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist)  
+    * labels_batch consists of `batch_size` number of elements which are the labels associated with the images_batch
 
 3. We now want to determine if we should run on the GPU(cuda) or CPU
 

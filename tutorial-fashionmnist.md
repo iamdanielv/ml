@@ -80,9 +80,11 @@ The [Quick Start tutorial](https://pytorch.org/tutorials/beginner/basics/quickst
     Shape of y: torch.Size([64]) torch.int64
     ```
 
-    > Notice that from X, Height and Width are 28  
-
-    The images in the Fashion MNIST data set are cropped to 28x28, to learn more go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist)  
+    Notice that from X:
+    * N is the number of items, comes from the batch_size we specified earlier
+    * C is the color channels (our images are greyscale)
+    * H is Height and W is Width - should both be 28, since the images in the Fashion MNIST data set are cropped to 28x28.  
+    * To learn more about Fashion MNIST, go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist)  
 
 3. We now want to determine if we should run on the GPU(cuda) or CPU
 

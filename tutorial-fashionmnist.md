@@ -95,9 +95,105 @@ The [Quick Start tutorial](https://pytorch.org/tutorials/beginner/basics/quickst
 
     Note that we have 60000 data points in our Training set and 10000 in our Testing set.
 
-    ```
+### Exploring the Fashion MNIST data
 
-2. Set batch size, we break our data into batches since it can be huge. We also want to load our data
+The Fashion MNIST data was created as another training / testing set. To learn more about Fashion MNIST, go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist).
+
+In order to get a feel for what the data looks like, we can pull an image and show it. Python lets us use tuples to get data, so we leverage that to pull an image and it's label from our Training set. We can then print out the contents:
+
+```python
+# Get first training sample
+image, label = training_data[0]
+print(f"image shape: {image.shape} with label: {label}")
+```
+
+the result should be similar to:
+
+```shell
+image shape: torch.Size([1, 28, 28]) with label: 9
+```
+
+Note that the image shape is 1, 28, 28 which corresponds to [color-channels, height, width]. Our image is grayscale, so there is only 1 color channel and the height and width are both 28. Label is `9` which is the numeric representation of our label.
+
+#### Visualizing Fashion MNIST
+
+The Fashion MNIST data is labeled using the following mapping. The details come from the [Fashion MNIST Github](https://github.com/zalandoresearch/fashion-mnist#labels):
+
+```python
+classes = [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot",
+    ]
+```
+
+We can use the `label` from before to get the mapping:
+
+```python
+print(f"Label: {classes[label]}")
+```
+
+which should print out:
+
+```shell
+Label: Ankle boot
+```
+
+Now to show the image, we can use all the previous code and matplot:
+
+```python
+import matplotlib.pyplot as plt
+# get the first item from our training_data
+image, label = training_data[0]
+print(f"image shape {image.shape} with label: {label}")
+# image shape is [1, 28, 28] (color-channels, height, width)
+# we can use the squeeze method to remove the color channels and show the image
+# we set the color map (cmap) to gray to match the original image
+plt.imshow(image.squeeze(), cmap='gray')
+# remove the axis since this is a picture
+plt.axis('off')
+# we use the mapping to pull out the label
+plt.title(classes[label]);
+plt.show()
+```
+
+The result should be similar to this:
+
+![Exploring our training data](images/sampleFashionMNIST.png)
+
+Explore the other images / labels in the data set to get a feel for the data.
+We can show a few images at a time with the following code:
+
+```python
+import matplotlib.pyplot as plt
+import random
+
+# Plot more images
+figure = plt.figure(figsize=(10, 10))
+rows, cols = 3, 3
+for i in range(1, rows * cols + 1):
+    # randomly pick an image in the training data array
+    random_index = random.randint(0, len(training_data))
+    image, label = training_data[random_index]
+    figure.add_subplot(rows, cols, i)
+    # calling squeeze on the image removes the color channel dimension
+    plt.imshow(image.squeeze(), cmap="gray")
+    # use the mapping to get the text label
+    plt.title(classes[label])
+    plt.axis(False);
+```
+
+Every time the code is run, it will pick random images, but the result should be similar to this. Run the code a few times to see more examples of the images in the data set:
+
+![Showing random FashionMNIST Images](images/multipleFashionMNIST.png)
+
 
     ```python
     batch_size = 64

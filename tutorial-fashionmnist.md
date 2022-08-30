@@ -16,16 +16,29 @@ To make running code easier, you can start a jupyter notebook by running the fol
 jupyter notebook
 ```
 
-As a sanity check, run the following code to make sure you are using the correct environment and using the GPU
+As a sanity check, run the following code to make sure you are using the correct environment
 
 ```python
 import sys
 import torch
+import os
+print(f"Conda Environment: {os.environ['CONDA_DEFAULT_ENV']}")
 
 print(f"PyTorch Version: {torch.__version__}")
 print()
 print(f"Python {sys.version}")
 print("GPU is", "available" if torch.cuda.is_available() else "NOT AVAILABLE")
+```
+
+If you followed the [Install document](install.md), you should see something similar to:
+
+```shell
+Conda Environment: torch
+PyTorch Version: 1.12.0
+
+Python 3.8.13 | packaged by conda-forge | (default, Mar 25 2022, 06:04:10) 
+[GCC 10.3.0]
+GPU is available
 ```
 
 ## Quick Start Tutorial

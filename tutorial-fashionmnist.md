@@ -230,7 +230,7 @@ Note: The FashionMNIST set is relatively small, but in general *real* data sets 
     * To learn more about Fashion MNIST, go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist)  
     * labels_batch consists of `batch_size` number of elements which are the labels associated with the images_batch
 
-3. We now want to determine if we should run on the GPU(cuda) or CPU
+2. We now want to determine if we should run on the GPU(cuda) or CPU
 
     ```python
     # Get cpu or gpu device for training.
@@ -244,7 +244,7 @@ Note: The FashionMNIST set is relatively small, but in general *real* data sets 
     Using cuda device
     ```
 
-4. Now define a model to be used and move it to the device, in our case it should be GPU
+3. Now define a model to be used and move it to the device, in our case it should be GPU
 
     ```python
     # Define model
@@ -287,7 +287,7 @@ Note: The FashionMNIST set is relatively small, but in general *real* data sets 
     )    
     ```
 
-5. Define a way of Training and Testing the current model
+4. Define a way of Training and Testing the current model
 
     ```python
     loss_fn = nn.CrossEntropyLoss()
@@ -328,7 +328,7 @@ Note: The FashionMNIST set is relatively small, but in general *real* data sets 
         print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
     ```
 
-6. Train on the data set! This step can take a while depending on number of epochs chosen.
+5. Train on the data set! This step can take a while depending on number of epochs chosen.
 
     > Note: you should see the test **Accuracy Go Up** and **Avg Loss Go Down** each epoch.  Something neat to try is **changing the number of epochs** to see if you can **improve the accuracy**
 
@@ -345,21 +345,21 @@ Note: The FashionMNIST set is relatively small, but in general *real* data sets 
     print("Finished Training... took ", time.time() - start_time, " secs")
     ```
 
-7. In order to re-use your model, you can save it:
+6. In order to re-use your model, you can save it:
 
     ```python
     torch.save(model.state_dict(), "model.pth")
     print("Saved PyTorch Model State to model.pth")
     ```
 
-8. Once you save your model, you can load it with:
+7. Once you save your model, you can load it with:
 
     ```python
     model = NeuralNetwork()
     model.load_state_dict(torch.load("model.pth"))
     ```
 
-9. Once we load the model, we can use it to make predictions.
+8. Once we load the model, we can use it to make predictions.
 
     > Note that the labels for the images are specific to the Fashion MNIST data set. To learn more go to the [Fashion MNIST GitHub](https://github.com/zalandoresearch/fashion-mnist) and look at the section called [Labels](https://github.com/zalandoresearch/fashion-mnist#labels)
 

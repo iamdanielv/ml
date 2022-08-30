@@ -69,6 +69,32 @@ The [Quick Start tutorial](https://pytorch.org/tutorials/beginner/basics/quickst
         download=True,
         transform=ToTensor(),
     )
+
+    print(f"Training {training_data}")
+    print(f"Testing {test_data}")
+    ```
+
+    The data will be downloaded to the `root` folder, which we specified to be `data`. You should have a `data` folder after the command finishes.
+
+    The above code should show something similar to:
+
+    ```shell
+    Training Dataset FashionMNIST
+        Number of datapoints: 60000
+        Root location: data
+        Split: Train
+        StandardTransform
+    Transform: ToTensor()
+    Testing Dataset FashionMNIST
+        Number of datapoints: 10000
+        Root location: data
+        Split: Test
+        StandardTransform
+    Transform: ToTensor()
+    ```
+
+    Note that we have 60000 data points in our Training set and 10000 in our Testing set.
+
     ```
 
 2. Set batch size, we break our data into batches since it can be huge. We also want to load our data

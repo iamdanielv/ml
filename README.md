@@ -4,9 +4,9 @@ Notes on getting started with and environment setup for Machine Learning on Linu
 
 ## Links
 
-### Installation and Environment Setup
+### Installation and Environment Setup - Pytorch
 
-* [Install Miniconda and PyTorch](install.md)
+* [Install Miniconda and PyTorch](installPyTorch.md)
   
 ### Tutorials and Understanding
 

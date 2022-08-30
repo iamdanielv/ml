@@ -10,7 +10,7 @@ Make sure you are in the correct conda environment. If you followed the [Install
 conda activate torch
 ```
 
-To make it easier, you can run the following code in a jupyter notebook by running the following:
+To make running code easier, you can start a jupyter notebook by running the following:
 
 ```shell
 jupyter notebook

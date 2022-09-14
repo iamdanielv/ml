@@ -67,13 +67,7 @@ I found a great video walk through by @jeffheaton that made it very easy to get 
     conda install pytorch cudatoolkit torchvision torchaudio -c pytorch
     ```
 
-9. Jeff provides a list of [additional libraries](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/tools.yml) which may be helpful.
-
-    ```sh
-    wget https://raw.githubusercontent.com/jeffheaton/t81_558_deep_learning/master/tools.yml
-    ```
-
-10. Jeff provides a list of [additional libraries](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/tools.yml) which may be helpful.
+9. Jeff provides a list of [additional libraries](https://github.com/jeffheaton/t81_558_deep_learning/blob/master/tools.yml) which may be helpful. I've copied the contents here in case the original file is moved or is lost.
 
     ```yaml
     dependencies:

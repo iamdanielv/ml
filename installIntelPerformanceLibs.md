@@ -2,6 +2,8 @@
 
 Intel provides an optimized version of Python.
 
+This tutorial assumes you have installed miniconda. You can refer to [Installing Miniconda and Pytorch](installPyTorch.md) if you need some guidance.
+
 I basically followed the instructions from:
 [Installing Intel Distribution for Python](https://www.intel.com/content/www/us/en/developer/articles/technical/using-intel-distribution-for-python-with-anaconda.html)
 

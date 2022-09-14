@@ -12,7 +12,7 @@ I basically followed the instructions from:
 * Update Conda
 
     ```sh
-    conda update conda && conda config --add channels intel
+    conda update conda
     ```
 
     The updates will vary depending on how many updates you need, but it will ask before performing the update. It should look something like:

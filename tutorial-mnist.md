@@ -4,7 +4,7 @@ There is a nice tutorial available at [Introduction - Deep Learning and Neural N
 
 ## Checking your environment
 
-Make sure you are in the correct conda environment. If you followed the [Install document](install.md), then you should be using `torch` as your conda environment. Switch to `torch` with:
+Make sure you are in the correct conda environment. If you followed the [Install document](installPyTorch.md), then you should be using `torch` as your conda environment. Switch to `torch` with:
 
 ```shell
 conda activate torch
@@ -30,7 +30,7 @@ print(f"Python {sys.version}")
 print("GPU is", "available" if torch.cuda.is_available() else "NOT AVAILABLE")
 ```
 
-If you followed the [Install document](install.md), you should see something similar to:
+If you followed the [Install document](installPyTorch.md), you should see something similar to:
 
 ```shell
 Conda Environment: torch

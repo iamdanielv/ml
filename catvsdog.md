@@ -6,7 +6,7 @@ This document is the continuation of [tutorial-mnist.md](tutorial-mnist.md) and 
 
 ## Checking your environment
 
-Make sure you are in the correct conda environment. If you followed the [Install document](install.md), then you should be using `torch` as your conda environment. Switch to `torch` with:
+Make sure you are in the correct conda environment. If you followed the [Install document](installPyTorch.md), then you should be using `torch` as your conda environment. Switch to `torch` with:
 
 ```shell
 conda activate torch
@@ -31,7 +31,7 @@ print()
 print(f"Python {sys.version}")
 ```
 
-If you followed the [Install document](install.md), you should see something similar to:
+If you followed the [Install document](installPyTorch.md), you should see something similar to:
 
 ```shell
 Conda Environment: torch
@@ -291,7 +291,7 @@ Running multiple epochs will increase accuracy, but takes a longer amount of tim
 This portion of the tutorial is taken from
 [Running on the GPU - Deep Learning and Neural Networks with Python and Pytorch p.7](https://pythonprogramming.net/gpu-deep-learning-neural-network-pytorch/) and [accompanying video](https://www.youtube.com/watch?v=6gk7giKER6s)
 
-If you followed the [install.md[](install.md) document in this repo you should have the tooling installed and ready to go.  
+If you followed the [installPyTorch.md](installPyTorch.md) document in this repo you should have the tooling installed and ready to go.  
 
 As a sanity check, run the following code to make sure you are using the correct environment and using the GPU
 
